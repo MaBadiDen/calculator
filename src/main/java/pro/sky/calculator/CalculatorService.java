@@ -10,18 +10,29 @@ public class CalculatorService {
     public String greetingsInCalculator() {
         return "Добро пожаловать в калькулятор";
     }
-    public int plusNumbers(int a, int b) {
-        return a + b;
+    public String plusNumbers(Integer a, Integer b) {
+        int sum = a + b;
+        return a + " + " + b + " = " + sum;
     }
-    public int minusNumbers(int a, int b) {
-        return a - b;
+    public String minusNumbers(Integer a, Integer b) {
+        int difference = a - b;
+        return a + " - " + b + " = " + difference;
     }
 
-    public int multiplyNumbers(int a, int b) {
-        return a * b;
+    public String multiplyNumbers(Integer a, Integer b) {
+        int product = a * b;
+        return a + " * " + b + " = " + product;
     }
-    public float divideNumbers(float a, float b) {
-        return a / b;
+    public String divideNumbers(Integer a, Integer b) {
+        double quotient = (double)a / (double) b;
+        if (b == 0) {
+            throw new IllegalArgumentException("На ноль делить нельзя, сволочь!");
+        }
+
+        return a + " / " + b + " = " + quotient;
+
+
+
     }
 
 }

@@ -17,19 +17,35 @@ public class Calculator {
         return calculatorService.greetingsInCalculator();
     }
     @GetMapping(path = "/calculator/plus")
-    public int plusNumbers(@RequestParam("num1") int a, @RequestParam("num2") int b) {
+    public String plusNumbers(@RequestParam(name = "num1", required = false) Integer a , @RequestParam(name = "num2", required = false) Integer b) {
+        if(b == null || a == null) {
+            return "Не введен один или оба параметра!";
+        }
         return calculatorService.plusNumbers(a, b);
     }
     @GetMapping(path = "/calculator/minus")
-    public int minusNumbers(@RequestParam("num1") int a, @RequestParam("num2") int b) {
+    public String minusNumbers(@RequestParam(name = "num1", required = false) Integer a, @RequestParam(name = "num2", required = false) Integer b) {
+        if(b == null || a == null) {
+            return "Не введен один или оба параметра!";
+        }
         return calculatorService.minusNumbers(a, b);
     }
     @GetMapping(path = "/calculator/multiply")
-    public int multiplyNumbers(@RequestParam("num1") int a, @RequestParam("num2") int b) {
+    public String multiplyNumbers(@RequestParam(name = "num1", required = false) Integer a, @RequestParam(name = "num2", required = false) Integer b) {
+        if(b == null || a == null) {
+            return "Не введен один или оба параметра!";
+        }
         return calculatorService.multiplyNumbers(a, b);
     }
     @GetMapping(path = "/calculator/divide")
-    public float divideNumbers(@RequestParam("num1") float a, @RequestParam("num2") float b) {
-        return calculatorService.divideNumbers(a, b);
+    public String divideNumbers(@RequestParam(name = "num1", required = false) Integer a, @RequestParam(name = "num2", required = false) Integer b) {
+        if(b == null || a == null) {
+            return "Не введен один или оба параметра!";
+        }
+        try {
+            return calculatorService.divideNumbers(a, b);
+        } catch (Throwable e) {
+            return e.getMessage();
+        }
     }
 }
