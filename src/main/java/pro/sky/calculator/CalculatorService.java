@@ -24,7 +24,7 @@ public class CalculatorService {
         return a + " * " + b + " = " + product;
     }
     public String divideNumbers(Integer a, Integer b) {
-        double quotient = (double)a / (double) b;
+        double quotient = (double) a / (double) b;
         if (b == 0) {
             throw new IllegalArgumentException("На ноль делить нельзя, сволочь!");
         }
